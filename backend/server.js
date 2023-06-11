@@ -11,9 +11,10 @@ const app = express();
 app.use(express.json())
 
 
-app.use(cors({
-    origin:["http://localhost:3000","http://localhost:3001","https://task-manager.onrender.com","https://6485848d6038ce6c764f63ac--jovial-stroopwafel-fbd9c2.netlify.app/","https://frontend-qhcw.onrender.com/"],
-}));
+// app.use(cors({
+//     origin:["http://localhost:3000","http://localhost:3001","https://task-manager.onrender.com","https://6485848d6038ce6c764f63ac--jovial-stroopwafel-fbd9c2.netlify.app/","https://frontend-qhcw.onrender.com/"],
+// }));
+app.use(cors());
 app.use("/api/tasks",taskRoutes)
 // const logger = (req,res,next) =>{
 //     console.log("Middleware ran");
