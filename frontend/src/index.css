@@ -102,7 +102,7 @@ section {
   grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
   row-gap: 1rem;
   column-gap: 1rem;
-} */
+} 
 
 /* Center All */
  .--center-all {
