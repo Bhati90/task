@@ -3,7 +3,7 @@ import { toast } from 'react-toastify'
 import TaskForm from './TaskForm'
 import Task from './Task'
 import axios  from "axios"
-import { URL } from '../App'
+// import { URL } from '../App'
 import loadingImg from "../assest/loader.gif"
 
 const TaskList = () => {

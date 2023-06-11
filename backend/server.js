@@ -12,7 +12,7 @@ app.use(express.json())
 
 
 app.use(cors({
-    origin:["http://localhost:3000","https://task-manager.onrender.com"],
+    origin:["http://localhost:3000","http://localhost:3001","https://task-manager.onrender.com","https://6485848d6038ce6c764f63ac--jovial-stroopwafel-fbd9c2.netlify.app/"],
 }));
 app.use("/api/tasks",taskRoutes)
 // const logger = (req,res,next) =>{
