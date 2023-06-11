@@ -113,7 +113,7 @@ section {
   width: 100%;
   margin: auto;
   text-align: center;
-} */
+} 
 
 /* Heading */
  h1,
@@ -256,7 +256,7 @@ p {
 .--btn-success {
   color: #fff;
   background: #28a745;
-} */
+}
 
 /* Background */
  .--bg-light {
