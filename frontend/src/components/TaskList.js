@@ -3,9 +3,13 @@ import { toast } from 'react-toastify'
 import TaskForm from './TaskForm'
 import Task from './Task'
 import axios  from "axios"
+// const dotenv = require('dotenv')
+// require('dotenv').config();
+
 // import { URL } from '../App'
 import loadingImg from "../assest/loader.gif"
 
+const url = process.env.REACT_APP
 const TaskList = () => {
 
     const [tasks,setTasks] = useState([])
@@ -34,7 +38,7 @@ const TaskList = () => {
     const getTasks = async () =>{
         setIsLoading(true)
         try{
-            const {data} = await axios.get("http://localhost:5000/api/tasks",formData)
+            const {data} = await axios.get(`${url}/api/tasks`)
            setTasks(data)
            console.log("user",formData)
             setIsLoading(false)
@@ -63,7 +67,7 @@ const TaskList = () => {
    }
 
    try{
-    await axios.post("http://localhost:5000/api/tasks",formData)
+    await axios.post(`http://localhost:5000/api/tasks`,formData)
     toast.success("task added successfully");
     setFormData({...formData,name:""} && {...formData,des:""})
     getTasks();
@@ -110,9 +114,9 @@ setIsEditing(false)
        }
     }
 
-    const deleteTask = async (_id)=>{
+    const deleteTask = async (id)=>{
         try{
-            await axios.delete(`http://localhost:5000/api/tasks/${_id}`)
+            await axios.delete(`http://localhost:5000/api/tasks/${id}`)
         getTasks()
     }catch(error){
       toast.error(error.message)
