@@ -9,7 +9,7 @@ import axios  from "axios"
 // import { URL } from '../App'
 import loadingImg from "../assest/loader.gif"
 
-const url = process.env.REACT_APP
+const URL = process.env.URL|| 'http://localhost:5000'
 const TaskList = () => {
 
     const [tasks,setTasks] = useState([])
@@ -38,7 +38,7 @@ const TaskList = () => {
     const getTasks = async () =>{
         setIsLoading(true)
         try{
-            const {data} = await axios.get(`${url}/api/tasks`)
+            const {data} = await axios.get(`${URL}/api/tasks`)
            setTasks(data)
            console.log("user",formData)
             setIsLoading(false)
