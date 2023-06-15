@@ -37,39 +37,39 @@ app.use(express.urlencoded({ extended: false }));
 app.use("/api/tasks", taskRoutes);
 
 // Load React App in production
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "../frontend/build")));
+// if (process.env.NODE_ENV === "production") {
+//   app.use(express.static(path.join(__dirname, "../frontend/build")));
 
-  app.get("*", (req, res) =>
-    res.sendFile(
-      path.resolve(__dirname, "../", "frontend", "build", "index.html")
-    )
-  );
-} else {
-  app.get("/", logger, (req, res) => {
-    res.send("Welcome to the home page");
-  });
-}
+//   app.get("*", (req, res) =>
+//     res.sendFile(
+//       path.resolve(__dirname, "../", "frontend", "build", "index.html")
+//     )
+//   );
+// } else {
+//   app.get("/", logger, (req, res) => {
+//     res.send("Welcome to the home page");
+//   });
+// }
 
 // Connect DB & start server
-mongoose
-  .connect(process.env.MONGO_URI)
-  .then(() =>
-    app.listen(PORT, () => {
-      console.log(`Server running on port ${PORT}...`);
-    })
-  )
-  .catch((err) => console.log(err));
-// const startServer = async () =>{
-//     try {
-//         await connectDB();
-//         app.listen(PORT,()=>{
-//             console.log(`server is running on port ${PORT}`);
+// mongoose
+//   .connect(process.env.MONGO_URI)
+//   .then(() =>
+//     app.listen(PORT, () => {
+//       console.log(`Server running on port ${PORT}...`);
+//     })
+//   )
+//   .catch((err) => console.log(err));
+const startServer = async () =>{
+    try {
+        await connectDB();
+        app.listen(PORT,()=>{
+            console.log(`server is running on port ${PORT}`);
         
-//         });
-//     }
-//     catch(error){
-// console.log(error)
-//     }
-// }
-// startServer();
+        });
+    }
+    catch(error){
+console.log(error)
+    }
+}
+startServer();

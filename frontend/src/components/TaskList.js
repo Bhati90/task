@@ -67,7 +67,7 @@ const TaskList = () => {
    }
 
    try{
-    await axios.post(`http://localhost:5000/api/tasks`,formData)
+    await axios.post(`${URL}0/api/tasks`,formData)
     toast.success("task added successfully");
     setFormData({...formData,name:""} && {...formData,des:""})
     getTasks();
@@ -104,7 +104,7 @@ const TaskList = () => {
       
        }
        try{
-        await axios.put(`http://localhost:5000/api/tasks/${taskId}`,formData)
+        await axios.put(`${URL}/api/tasks/${taskId}`,formData)
         setFormData({...formData,name:"",des:""})
         setIsEditing(false)
    getTasks();
@@ -116,7 +116,7 @@ setIsEditing(false)
 
     const deleteTask = async (id)=>{
         try{
-            await axios.delete(`http://localhost:5000/api/tasks/${id}`)
+            await axios.delete(`${URL}/api/tasks/${id}`)
         getTasks()
     }catch(error){
       toast.error(error.message)
@@ -130,7 +130,7 @@ setIsEditing(false)
            completed:true,
         }
         try{
-            await axios.put(`http://localhost:5000/api/tasks/${task._id}`,newFormData)
+            await axios.put(`${URL}/api/tasks/${task._id}`,newFormData)
             getTasks()
         }catch(error){
            toast.error(error.message)
